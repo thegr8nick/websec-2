@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прогноз погоды</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>
+            <span>🌤️</span>
+            Прогноз погоды
+        </h1>
+
+        <div class="search-box">
+            <input type="text" class="search-input" id="citySearch" placeholder="Начните вводить название города..." autocomplete="off">
+            <div class="search-results" id="searchResults"></div>
+        </div>
+
+        <div id="weatherContent" style="display: none;">
+            <div class="city-info">
+                <div class="city-name-large" id="cityName">—</div>
+                <div class="city-details" id="cityDetails">—</div>
+            </div>
+
+            <div class="current-weather">
+                <div class="temp-main" id="currentTemp">—°</div>
+                <div class="weather-desc" id="weatherDesc">—</div>
+                <div class="details-row">
+                    <div class="detail-card">
+                        <div class="detail-label">ОСАДКИ</div>
+                        <div class="detail-value"><span id="currentPrecip">—</span><span class="detail-unit">мм</span></div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="detail-label">ВЕТЕР</div>
+                        <div class="detail-value"><span id="currentWind">—</span><span class="detail-unit">км/ч</span></div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="detail-label">ВЛАЖНОСТЬ</div>
+                        <div class="detail-value"><span id="currentHumidity">—</span><span class="detail-unit">%</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="forecast-title">📅 Прогноз на 7 дней</div>
+            <div class="forecast-list" id="forecastList"></div>
+        </div>
+
+        <div id="emptyState" class="empty-state">
+            <div class="empty-icon">🏙️</div>
+            <div class="empty-title" style="font-size: 18px; margin-bottom: 8px;">Выберите город</div>
+            <div class="empty-desc" style="opacity: 0.7;">Начните вводить название, чтобы увидеть прогноз погоды</div>
+        </div>
+
+        <div id="loadingState" class="loading" style="display: none;">
+            <div>⏳ Загружаем прогноз...</div>
+        </div>
+
+        <div id="errorState" class="error" style="display: none;">
+            <div>❌ Не удалось загрузить погоду</div>
+            <div style="font-size: 12px; margin-top: 8px;">Проверьте интернет и попробуйте снова</div>
+        </div>
+
+        <div class="footer">
+            Данные: Open-Meteo • 7 дней • Россия
+        </div>
+    </div>
+
+    <script src="cities.js"></script>
+    <script src="weather.js"></script>
+    <script src="search.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
